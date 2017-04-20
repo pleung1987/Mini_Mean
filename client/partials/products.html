@@ -1,0 +1,46 @@
+
+<h1 style="margin-left:30px;">Products</h1>
+<div class="row">
+    <div style="margin-left:50px;" class="col-md-3 col-sm-3">
+        <div class="page-header">
+            <h2>Add Product</h2>
+            <input type="text" class="filter" placeholder="Filter products" ng-model="productFilter">
+            <!-- create ng-model filter and call it in the div class ng-repeat | filter: "ng-model filter name" -->
+        </div>
+        <p style="color: red; margin-left:50px;" ng-if="message" ng-bind="message"></p>
+        <form ng-submit="createProduct()" method="post">
+            <div class="form-group">
+                <label for="newProductName">Product Name</label>
+                <input type="text" name="newProductName" class="form-control" ng-model="newProduct.name">
+            </div>
+            <div class="form-group">
+                <label for="newProductImg">Image (url)</label>
+                <input type="text" name="newProductImg" class="form-control" ng-model="newProduct.img">
+            </div>
+            <div class="form-group">
+                <label for="newProductDes">Description</label>
+                <input type="text" name="newProductDes" class="form-control" ng-model="newProduct.description">
+            </div>
+            <div class="form-group">
+                <label for="newProductQuantity">Initial Quantity</label>
+                <input type="number" min="0" name="newProductQuantity" class="form-control" ng-model="newProduct.quantity">
+            </div>
+            <button type="submit" style="margin-left:150px;"class="btn btn-default btn-primary">Add Product</button>
+        </form>
+    </div>
+    <div class="col-md-8 col-sm-8">
+        <div ng-repeat="product in products | filter: productFilter" class="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 panel panel-primary product-panel">
+            <!-- put ng-repeat on the div class above -->
+            <div class="panel-title">
+                <h3 class="panel-title">{{product.name}} <span class="badge">{{product.quantity}} left</span></h3>
+                <button type="button" style="margin-left: 120px;" class="btn btn-danger" ng-click="deleteProduct(product)">x</button>
+            </div>
+            <div class="panel-body">
+                <img ng-src="{{product.img}}" ng-show="product.img !== undefined" class="product-img" alt="Product Image">
+                <!--  -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- You will attach an ng-model and an ng-submit to your forms (but might want to wait until the next tab, when you have your controllers and factory) -->

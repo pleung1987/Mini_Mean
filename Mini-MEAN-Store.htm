@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://127.0.0.1:8000/#!/products -->
+<html ng-app="app" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    
+    <title>Mini-MEAN-Store</title>
+    <link rel="stylesheet" href="./Mini-MEAN-Store_files/style.css">
+    <link rel="stylesheet" href="./Mini-MEAN-Store_files/bootstrap.css">
+    <!-- Angular from bower_components, otherwise find the CDN -->
+    <script src="./Mini-MEAN-Store_files/angular.js" charset="utf-8"></script>
+    <script src="./Mini-MEAN-Store_files/angular-route.js" charset="utf-8"></script>
+    <script src="./Mini-MEAN-Store_files/bootstrap.js" charset="utf-8"></script>
+    <!-- End Bower Components -->
+
+    <!-- START your angular application code, hook up all your controllers and factories -->
+    <script src="./Mini-MEAN-Store_files/app.js" charset="utf-8"></script>
+    <script src="./Mini-MEAN-Store_files/storeFactory.js" charset="utf-8"></script>
+    <script src="./Mini-MEAN-Store_files/dashboard_controller.js" charset="utf-8"></script>
+    <script src="./Mini-MEAN-Store_files/products_controller.js" charset="utf-8"></script>
+    <script src="./Mini-MEAN-Store_files/orders_controller.js" charset="utf-8"></script>
+    <script src="./Mini-MEAN-Store_files/customers_controller.js" charset="utf-8"></script>
+  </head>
+  <body cz-shortcut-listen="true">
+      <nav>
+          <a href="http://127.0.0.1:8000/#!/">DashBoard</a> |   <a href="http://127.0.0.1:8000/#!/products">Products</a> |  <a href="http://127.0.0.1:8000/#!/orders">Orders</a> |  <a href="http://127.0.0.1:8000/#!/customers">Customers</a> |  <a href="http://127.0.0.1:8000/#!/">Settings</a>
+      </nav>
+    <!-- ngView: --><div ng-view="" class="ng-scope">
+<h1 style="margin-left:30px;" class="ng-scope">Products</h1>
+<div class="row ng-scope">
+    <div style="margin-left:50px;" class="col-md-3 col-sm-3">
+        <div class="page-header">
+            <h2>Add Product</h2>
+        </div>
+        <form ng-submit="createProduct()" method="post" class="ng-pristine ng-valid">
+            <div class="form-group">
+                <label for="newProductName">Product Name</label>
+                <input type="text" name="newProductName" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="newProduct.name">
+            </div>
+            <div class="form-group">
+                <label for="newProductImg">Image (url)</label>
+                <input type="text" name="newProductImg" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="newProduct.img">
+            </div>
+            <div class="form-group">
+                <label for="newProductDes">Description</label>
+                <input type="text" name="newProductDes" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="newProduct.description">
+            </div>
+            <div class="form-group">
+                <label for="newProductQuantity">Initial Quantity</label>
+                <input type="text" name="newProductQuantity" class="form-control ng-pristine ng-untouched ng-valid ng-empty" ng-model="newProduct.quantity">
+            </div>
+            <button type="submit" style="margin-left:150px;" class="btn btn-default btn-primary">Add Product</button>
+        </form>
+    </div>
+    <div class="col-md-8 col-sm-8">
+        <div class="class=&quot;col-md-3" col-md-offset-1="" col-sm-3="" col-sm-offset-1="" panel="" panel-primary="" product-panel"="">
+            <!-- put ng-repeat on the div class above -->
+            <div class="panel-title">
+                <h3 class="panel-title">{product.name} <span class="badge">{product.quantity} left</span></h3>
+                <button type="button" class="btn btn-danger" ng-click="deleteProduct(product)">x</button>
+            </div>
+            <div class="panel-body">
+                <img src="http://127.0.0.1:8000/" class="thumbnail product-img" alt="images for products">
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- You will attach an ng-model and an ng-submit to your forms (but might want to wait until the next tab, when you have your controllers and factory) -->
+</div>
+  
+
+</body></html>

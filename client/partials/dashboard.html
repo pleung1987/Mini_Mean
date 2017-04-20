@@ -1,0 +1,47 @@
+
+<center>
+    <h1>Dashboard</h1>
+    <br>
+    <div class="col-md-3 col-sm-3">
+        <input type="text" class="filter" placeholder="Filter products" ng-model="productFilter">
+        <!-- create ng-model filter and call it in the div class ng-repeat | filter: "ng-model filter name" -->
+    </div>
+    <div class="col-md-8 col-sm-8">
+        <div class="row">
+            <div class="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 panel panel-primary product-panel" ng-repeat='product in products | filter:productFilter' ng-show='$index < 6'>
+                <div class="panel-heading">
+                    <h5 class="pannel-title">{{product.name}} <span class="badge">{{product.quantity}} left...</span></h5>
+                </div>
+                <div class="panel-body">
+                    <img ng-src="{{product.img}}" ng-show="product.img !== undefined" class="product-img" alt="Product Image">
+                </div>
+            </div>
+            <br>
+            <a href="#!/products"><u>Show more...</u></a>
+        </div>
+    </div>
+<div style="margin-left: 200px;"class="col-md-8 col-sm-18">
+    <div class="page-header">
+        <h2>Recent Orders</h2>
+        <br>
+        <ul>
+            <li ng-repeat='order in orders' ng-show='$index < 5'>
+                <p>{{order._customer.name}} purchased {{order.quantity}} {{order._product.name}}... <span>Ordered at: {{order.createdAt | date: "MMM. dd, yyyy -- hh : mm a" }}</span></p>
+            </li>
+        </ul>
+        <a href="#!/orders">show all orders...</a>
+    </div>
+</div>
+<div style="margin-left: 200px;" class="col-md-8 col-sm-8">
+    <div class="page-header">
+        <h2>Recent New Customers</h2>
+        <br>
+        <ul>
+            <li ng-repeat='customer in customers' ng-show='$index < 5'>
+                <p>{{customer.name}} joined on {{customer.createdAt | date: "MMM. dd, yyyy -- hh : mm a"}}</p>
+            </li>
+        </ul>
+        <a href="#!/customers">show all customers...</a>
+    </div>
+</div>
+</center>

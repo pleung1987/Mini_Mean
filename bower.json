@@ -1,0 +1,17 @@
+{
+  "name": "MyApp",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Patrick Leung <pleung1987@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/pleung1987/DojoAssignment",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
